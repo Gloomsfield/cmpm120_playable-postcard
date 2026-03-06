@@ -1,0 +1,4 @@
+var Climb = {
+	climbable: true,
+};
+

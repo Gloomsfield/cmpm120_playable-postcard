@@ -1,0 +1,6 @@
+var Collect = {
+	collect: function() {
+		
+	}
+};
+
