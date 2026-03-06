@@ -1,6 +1,6 @@
 class UI extends Phaser.Scene {
 	constructor() {
-		super('game_scene');
+		super('ui_scene');
 	}
 
 	create() {
