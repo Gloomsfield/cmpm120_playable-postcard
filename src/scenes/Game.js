@@ -10,6 +10,7 @@ class Game extends Phaser.Scene {
 
 	update() {
 		this.player.update();
+		this.gift.update();
 	}
 }
 
