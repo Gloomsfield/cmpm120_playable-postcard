@@ -7,8 +7,8 @@ let Player = new Phaser.Class({
 		Move,
 	],
 
-	constructor(scene) {
-		super(scene, 0.0, 0.0, 'player');
+	initialize: function Player(scene) {
+		Sprite.call(scene, 0.0, 0.0, 'player');
 
 		scene.add.existing(this);
 	}
