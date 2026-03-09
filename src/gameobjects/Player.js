@@ -20,6 +20,8 @@ let Player = new Phaser.Class({
 
 		this.move_left_input.on('down', () => {
 			this.move(LEFT);
+
+			this.direction = LEFT;
 		});
 
 		this.move_right_input = scene.input.keyboard.addKey(
@@ -30,6 +32,8 @@ let Player = new Phaser.Class({
 
 		this.move_right_input.on('down', () => {
 			this.move(RIGHT);
+
+			this.direction = DOWN;
 		});
 
 		this.move_up_input = scene.input.keyboard.addKey(
@@ -40,6 +44,8 @@ let Player = new Phaser.Class({
 
 		this.move_up_input.on('down', () => {
 			this.move(UP);
+
+			this.direction = UP;
 		});
 
 		this.move_down_input = scene.input.keyboard.addKey(
@@ -50,6 +56,8 @@ let Player = new Phaser.Class({
 
 		this.move_down_input.on('down', () => {
 			this.move(DOWN);
+
+			this.direction = DOWN;
 		});
 
 		this.interact_input = scene.input.keyboard.addKey(
