@@ -6,5 +6,9 @@ class Game extends Phaser.Scene {
 	create() {
 		this.player = new Player(this);
 	}
+
+	update() {
+
+	}
 }
 

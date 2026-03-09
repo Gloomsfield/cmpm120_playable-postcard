@@ -4,7 +4,7 @@ class Play extends Phaser.Scene {
 	}
 
 	create() {
-		
+		this.scene.launch('game_scene');
 	}
 }
 

@@ -8,9 +8,9 @@ let Player = new Phaser.Class({
 	],
 
 	initialize: function Player(scene) {
-		Sprite.call(scene, 0.0, 0.0, 'player');
+		Phaser.GameObjects.Sprite.call(this, scene, 0.0, 0.0, 'player_sprite');
 
 		scene.add.existing(this);
-	}
+	},
 });
 

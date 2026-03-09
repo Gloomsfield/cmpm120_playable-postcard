@@ -3,8 +3,12 @@ class Load extends Phaser.Scene {
 		super('load_scene');
 	}
 
-	create() {
-		
+	preload() {
+		this.load.once('complete', () => {
+			this.scene.start('play_scene');
+		});
+
+		this.load.image('player_sprite', 'assets/player_debug.png');
 	}
 }
 
