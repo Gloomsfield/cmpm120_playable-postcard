@@ -5,6 +5,13 @@ let Player = new Phaser.Class({
 		GridPosition,
 		Inventory,
 		Direction,
+		Move,
 	],
+
+	constructor(scene) {
+		super(scene, 0.0, 0.0, 'player');
+
+		scene.add.existing(this);
+	}
 });
 

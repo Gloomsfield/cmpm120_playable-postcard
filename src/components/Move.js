@@ -30,7 +30,7 @@ var Move = {
 		}
 
 		if(!tile_is_blocked(new_pos)) {
-			this.grid_position = new_pos;
+			world_grid.grid_position = new_pos;
 		}
 	},
 };
