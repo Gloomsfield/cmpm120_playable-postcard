@@ -4,9 +4,9 @@
 let phaser_config = {
 	type: Phaser.WEBGL,
 	scale: {
-		width: 240,
-		height: 160,
-		zoom: 2.0,
+		width: WIDTH,
+		height: HEIGHT,
+		zoom: 1.0,
 	},
 	antialias: false,
 	roundPixels: true,

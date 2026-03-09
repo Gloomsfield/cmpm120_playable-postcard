@@ -9,15 +9,15 @@ class WorldGrid {
 	static object_to_gridpos = new Map();
 
 	static tile_is_blocked(x, y) {
-		let gridpos = this.stringpos_to_gridpos.get(`(${x}, ${y})`);
+		let gridpos = WorldGrid.stringpos_to_gridpos.get(`(${x}, ${y})`);
 
 		if(!gridpos) { return false; }
-
-		return !this.gridpos_to_object.has(gridpos);
+		
+		return WorldGrid.gridpos_to_object.has(gridpos);
 	};
 
-	static gridpos_from_object(object) {
-		let gridpos = this.object_to_gridpos.get(object);
+	static get_gridpos_from_object(object) {
+		let gridpos = WorldGrid.object_to_gridpos.get(object);
 
 		if(!gridpos) { return false; }
 
@@ -25,18 +25,20 @@ class WorldGrid {
 	}
 
 	static associate_object_with_gridpos(object, x, y) {
-		if(this.tile_is_blocked(x, y)) { return SetGridPositionResult.bonk; }
+		if(WorldGrid.tile_is_blocked(x, y)) { return ObjectPositionAssociationResult.bonk; }
 
-		let old_gridpos = this.object_to_gridpos.get(object);
+		let old_gridpos = WorldGrid.object_to_gridpos.get(object);
 
 		if(old_gridpos) {
-			this.gridpos_to_object.delete(old_gridpos);
+			WorldGrid.gridpos_to_object.delete(old_gridpos);
 		}
 
-		let new_gridpos = this.stringpos_to_gridpos.get(`${x}, ${y}`);
+		let new_gridpos = WorldGrid.stringpos_to_gridpos.get(`(${x}, ${y})`);
 
-		this.object_to_gridpos.set(object, new_gridpos);
-		this.gridpos_to_object.set(new_gridpos, object);
+		WorldGrid.object_to_gridpos.set(object, new_gridpos);
+		WorldGrid.gridpos_to_object.set(new_gridpos, object);
+
+		return ObjectPositionAssociationResult.success;
 	};
 }
 
