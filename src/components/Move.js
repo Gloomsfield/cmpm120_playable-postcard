@@ -1,6 +1,10 @@
 var Move = {
 	move: function(direction) {
-		let new_pos = this.grid_position;
+		let new_pos = WorldGrid.gridpos_from_object(this);
+		if(!new_pos) {
+			console.error("an object didn't have a position on the grid!");
+			return;
+		}
 
 		if(this.direction) {
 			this.direction = direction;
@@ -8,29 +12,35 @@ var Move = {
 
 		switch(direction) {
 			case LEFT:
-				new_pos.add(new Phaser.Math.Vector2(-1, 0));
+				new_pos.x -= 1;
 
 				break;
 			case RIGHT:
-				new_pos.add(new Phaser.Math.Vector2(1, 0));
+				new_pos.x += 1;
 
 				break;
 
 			case UP:
-				new_pos.add(new Phaser.Math.Vector2(0, 1));
+				new_pos.y += 1;
 
 				break;
 
 			case Down:
-				new_pos.add(new Phaser.Math.Vector2(0, -1));
+				new_pos.y -= 1;
 
 				break;
 			default:
-				console.error("invalid direction!");
+				console.error("invalid movement direction!");
 		}
 
-		if(!tile_is_blocked(new_pos)) {
-			world_grid.grid_position = new_pos;
+		switch(WorldGrid.associate_object_with_gridpos(this, new_pos.x, new_pos.y)) {
+			case ObjectPositionAssociationResult.bonk:
+				console.log('bonk!');
+				return;
+			case ObjectPositionAssociationResult.success:
+				return;
+			default:
+				return;
 		}
 	},
 };
