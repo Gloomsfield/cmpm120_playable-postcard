@@ -14,7 +14,19 @@ class WorldGrid {
 		if(!gridpos) { return false; }
 		
 		return WorldGrid.gridpos_to_object.has(gridpos);
-	};
+	}
+
+	static get_object_at_tile(x, y) {
+		let gridpos = WorldGrid.stringpos_to_gridpos.get(`(${x}, ${y})`);
+
+		if(!gridpos) { return false; }
+
+		let object = WorldGrid.gridpos_to_object.get(gridpos);
+
+		if(!object) { return false; }
+
+		return object;
+	}
 
 	static get_gridpos_from_object(object) {
 		let gridpos = WorldGrid.object_to_gridpos.get(object);
@@ -39,7 +51,14 @@ class WorldGrid {
 		WorldGrid.gridpos_to_object.set(new_gridpos, object);
 
 		return ObjectPositionAssociationResult.success;
-	};
+	}
+
+	static deep_gridpos_from_object(object) {
+		let shallow_gridpos = WorldGrid.get_gridpos_from_object(object);
+		if(!shallow_gridpos) { return false; }
+
+		return JSON.parse(JSON.stringify(shallow_gridpos));
+	}
 }
 
 function define_grid_bounds(width, height) {

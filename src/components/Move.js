@@ -1,12 +1,10 @@
 var Move = {
 	move: function(direction) {
-		let new_pos = WorldGrid.get_gridpos_from_object(this);
+		let new_pos = WorldGrid.deep_gridpos_from_object(this);
 		if(!new_pos) {
 			console.error("an object didn't have a position on the grid!");
 			return;
 		}
-
-		new_pos = JSON.parse(JSON.stringify(new_pos));
 
 		if(this.direction) {
 			this.direction = direction;

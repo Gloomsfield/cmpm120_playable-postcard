@@ -9,6 +9,7 @@ class Load extends Phaser.Scene {
 		});
 
 		this.load.image('player_sprite', 'assets/player_debug.png');
+		this.load.image('debug_gift_sprite', 'assets/gift_debug.png');
 	}
 }
 

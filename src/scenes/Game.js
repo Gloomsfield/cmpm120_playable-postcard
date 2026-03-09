@@ -4,7 +4,8 @@ class Game extends Phaser.Scene {
 	}
 
 	create() {
-		this.player = new Player(this);
+		this.player = new Player(this, { x: 5, y: 5 });
+		this.gift = new DebugGift(this, { x: 0, y: 0 });
 	}
 
 	update() {
