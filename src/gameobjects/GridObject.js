@@ -5,9 +5,15 @@ let GridObject = new Phaser.Class({
 		Phaser.GameObjects.Sprite.call(this, scene, 0.0, 0.0, sprite_key);
 
 		WorldGrid.associate_object_with_gridpos(this, x, y);
+
+		this.update_position();
 	},
 
 	update() {
+		this.update_position();
+	},
+
+	update_position() {
 		let grid_pos = WorldGrid.get_gridpos_from_object(this);
 
 		let world_pos = {
@@ -16,6 +22,6 @@ let GridObject = new Phaser.Class({
 		};
 
 		this.setPosition(world_pos.x, world_pos.y);
-	}
+	},
 });
 
