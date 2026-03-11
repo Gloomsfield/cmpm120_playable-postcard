@@ -39,7 +39,7 @@ class Game extends Phaser.Scene {
 			}
 		});
 
-		// TODO remove hardcoding coords
+		// TODO remove hardcoded coords
 		this.player = new Player(this, { x: 3, y: 36 });
 
 		this.cameras.main.startFollow(this.player, true, 0.05, 0.05);
