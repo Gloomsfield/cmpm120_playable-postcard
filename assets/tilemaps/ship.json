@@ -238,7 +238,7 @@
         {
          "columns":16,
          "firstgid":1,
-         "image":"ship_tileset.png",
+         "image":"..\/tilesets\/ship_tileset.png",
          "imageheight":1024,
          "imagewidth":1024,
          "margin":0,

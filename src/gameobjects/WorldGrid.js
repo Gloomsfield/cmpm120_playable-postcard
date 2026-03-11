@@ -53,6 +53,10 @@ class WorldGrid {
 		return ObjectPositionAssociationResult.success;
 	}
 
+	static add_wall(x, y) {
+		WorldGrid.associate_object_with_gridpos({ x: x, y: y }, x, y);
+	}
+
 	static deep_gridpos_from_object(object) {
 		let shallow_gridpos = WorldGrid.get_gridpos_from_object(object);
 		if(!shallow_gridpos) { return false; }
@@ -69,5 +73,5 @@ function define_grid_bounds(width, height) {
 	}
 }
 
-define_grid_bounds(100, 100);
+define_grid_bounds(MAP_WIDTH, MAP_HEIGHT);
 
