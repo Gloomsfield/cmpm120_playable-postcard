@@ -2,7 +2,6 @@ let DebugGift = new Phaser.Class({
 	Extends: GridObject,
 
 	Mixins: [
-		Interact,
 		Block,
 	],
 

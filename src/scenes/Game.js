@@ -21,8 +21,8 @@ class Game extends Phaser.Scene {
 			this,
 			0,
 			0,
-			22,
-			38,
+			MAP_WIDTH,
+			MAP_HEIGHT,
 			{ },
 			'walls'
 		);
@@ -33,21 +33,20 @@ class Game extends Phaser.Scene {
 
 			for(let y = y_offset; y < y_offset + Math.floor(object.height / 64); y++) {
 				for(let x = x_offset; x < x_offset + Math.floor(object.width / 64); x++) {
-					let interactable = { key: object.name, };
+					let interactable = new InteractableObject(this, object.name, x, y);
 					WorldGrid.place_interactable(interactable, x, y);
 				}
 			}
 		});
 
+		// TODO remove hardcoding coords
 		this.player = new Player(this, { x: 3, y: 36 });
-		this.gift = new DebugGift(this, { x: 0, y: 0 });
 
 		this.cameras.main.startFollow(this.player, true, 0.05, 0.05);
 	}
 
 	update() {
 		this.player.update();
-		this.gift.update();
 	}
 }
 
