@@ -33,7 +33,7 @@ let Player = new Phaser.Class({
 		this.move_right_input.on('down', () => {
 			this.move(RIGHT);
 
-			this.direction = DOWN;
+			this.direction = RIGHT;
 		});
 
 		this.move_up_input = scene.input.keyboard.addKey(
