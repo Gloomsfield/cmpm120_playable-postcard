@@ -170,6 +170,12 @@
                  "height":64,
                  "id":6,
                  "name":"infirmary_bed_occupied",
+                 "properties":[
+                        {
+                         "name":"A sick patient. Poor sap; must not have their sea legs yet.",
+                         "type":"string",
+                         "value":""
+                        }],
                  "rotation":0,
                  "type":"",
                  "visible":true,
@@ -181,6 +187,12 @@
                  "height":64,
                  "id":8,
                  "name":"infirmary_desk_upper",
+                 "properties":[
+                        {
+                         "name":"This must be the doctor's desk. It says his name on a placard. \"Dr. Dean Kreuller.\"",
+                         "type":"string",
+                         "value":""
+                        }],
                  "rotation":0,
                  "type":"",
                  "visible":true,
@@ -192,6 +204,12 @@
                  "height":64,
                  "id":9,
                  "name":"infirmary_desk_lower",
+                 "properties":[
+                        {
+                         "name":"dialogue",
+                         "type":"string",
+                         "value":"There are papers strewn about the desk."
+                        }],
                  "rotation":0,
                  "type":"",
                  "visible":true,

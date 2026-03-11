@@ -13,6 +13,9 @@ class Load extends Phaser.Scene {
 
 		this.load.image('ship_tileset', './assets/tilesets/ship_tileset.png');
 		this.load.tilemapTiledJSON('ship_tilemap', './assets/tilemaps/ship.json');
+
+		this.load.audio('belowdecks_audio', './assets/audio/belowdecks.wav');
+		this.load.audio('bonk_audio', './assets/audio/bonk.wav');
 	}
 }
 

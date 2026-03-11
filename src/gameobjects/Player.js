@@ -10,6 +10,8 @@ let Player = new Phaser.Class({
 	initialize: function Player(scene, grid_position) {
 		GridObject.call(this, scene, grid_position.x, grid_position.y, 'player_sprite');
 
+		this.scene = scene;
+
 		scene.add.existing(this);
 		
 		this.move_left_input = scene.input.keyboard.addKey(
@@ -19,6 +21,8 @@ let Player = new Phaser.Class({
 		);
 
 		this.move_left_input.on('down', () => {
+			if(this.has_active_dialogue) { return; }
+
 			this.move(LEFT);
 
 			this.direction = LEFT;
@@ -31,6 +35,8 @@ let Player = new Phaser.Class({
 		);
 
 		this.move_right_input.on('down', () => {
+			if(this.has_active_dialogue) { return; }
+
 			this.move(RIGHT);
 
 			this.direction = RIGHT;
@@ -43,6 +49,8 @@ let Player = new Phaser.Class({
 		);
 
 		this.move_up_input.on('down', () => {
+			if(this.has_active_dialogue) { return; }
+
 			this.move(UP);
 
 			this.direction = UP;
@@ -55,6 +63,8 @@ let Player = new Phaser.Class({
 		);
 
 		this.move_down_input.on('down', () => {
+			if(this.has_active_dialogue) { return; }
+
 			this.move(DOWN);
 
 			this.direction = DOWN;

@@ -37,7 +37,7 @@ var Move = {
 
 		switch(association_result) {
 			case ObjectPositionAssociationResult.bonk:
-				console.log('bonk!');
+				this.scene.sound.get('bonk_audio').play();
 				return;
 			case ObjectPositionAssociationResult.success:
 				return;

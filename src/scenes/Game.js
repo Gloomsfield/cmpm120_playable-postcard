@@ -43,6 +43,14 @@ class Game extends Phaser.Scene {
 		this.player = new Player(this, { x: 3, y: 36 });
 
 		this.cameras.main.startFollow(this.player, true, 0.05, 0.05);
+
+		this.music = this.sound.add('belowdecks_audio', {
+			loop: true,
+			volume: 0.5,
+		});
+		this.music.play();
+
+		this.sound.add('bonk_audio');
 	}
 
 	update() {

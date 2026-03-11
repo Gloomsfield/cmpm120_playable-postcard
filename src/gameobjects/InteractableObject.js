@@ -12,6 +12,6 @@ let InteractableObject = new Phaser.Class({
 	},
 
 	on_interact() {
-		InteractionManager.interact(this.key);
+
 	},
 });
