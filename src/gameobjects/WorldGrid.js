@@ -53,8 +53,12 @@ class WorldGrid {
 		return ObjectPositionAssociationResult.success;
 	}
 
-	static add_wall(x, y) {
+	static create_wall(x, y) {
 		WorldGrid.associate_object_with_gridpos({ x: x, y: y }, x, y);
+	}
+
+	static place_interactable(interactable, x, y) {
+		WorldGrid.associate_object_with_gridpos(interactable, x, y);
 	}
 
 	static deep_gridpos_from_object(object) {
