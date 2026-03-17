@@ -124,7 +124,7 @@ let Player = new Phaser.Class({
 		let that_object = WorldGrid.get_object_at_tile(that_tile.x, that_tile.y);
 
 		if(that_object && that_object.key) {
-			InteractionManager.start_interaction(that_object.key);
+			InteractionManager.interact(that_object.key);
 		}
 	},
 });

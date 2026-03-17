@@ -1,5 +1,6 @@
 let InteractionManager = {
 	ui_scene: false,
+	active_interaction: false,
 
 	// interactions
 
@@ -26,7 +27,7 @@ let InteractionManager = {
 		},
 	].map((obj) => [ obj.tilemap_key, obj.interaction_key ])),
 	
-	start_interaction: function(tilemap_key) {
+	interact: function(tilemap_key) {
 		if(!this.ui_scene) {
 			console.error('ui_scene undefined in InteractionManager!');
 			return;
@@ -48,6 +49,8 @@ let InteractionManager = {
 		this.ui_scene.dialogue_box.visible = true;
 		this.ui_scene.dialogue_text.visible = true;
 		this.ui_scene.dialogue_text.text = interaction.text;
+
+		this.interaction_map.set(tilemap_key, interaction.next_key);
 	},
 };
 
