@@ -123,9 +123,26 @@ let Player = new Phaser.Class({
 
 		let that_object = WorldGrid.get_object_at_tile(that_tile.x, that_tile.y);
 
-		if(that_object && that_object.key) {
-			InteractionManager.interact(that_object.key);
+		if(!that_object || !that_object.key) {
+			return;
 		}
+
+		if(that_object.locked) {
+			InteractionManager.interact('locked-door');
+			return;
+		}
+
+		if(that_object.x_offset_on_enter) {
+			let new_pos = WorldGrid.deep_gridpos_from_object(this);
+
+			new_pos.x += that_object.x_offset_on_enter;
+
+			WorldGrid.associate_object_with_gridpos(this, new_pos.x, new_pos.y);
+
+			return;
+		}
+		
+		InteractionManager.interact(that_object.key);
 	},
 });
 

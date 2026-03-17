@@ -4,19 +4,19 @@ let InteractionManager = {
 
 	// interactions
 
-	bed_interaction_0: {
+	bed_unoccupied_0: {
 		text: 'it\'s your infirmary bed.',
-		next_key: 'bed_interaction_1',
+		next_key: 'bed_unoccupied_1',
 		global_mutator: false,
 	},
 
-	bed_interaction_1: {
+	bed_unoccupied_1: {
 		text: 'it was rather uncomfortable.',
-		next_key: 'bed_interaction_2',
+		next_key: 'bed_unoccupied_2',
 		global_mutator: false,
 	},
 
-	bed_interaction_2: {
+	bed_unoccupied_2: {
 		text: 'what are ya gonna do. sometimes beds are just like that.',
 		next_key: false,
 		global_mutator: false,
@@ -40,16 +40,26 @@ let InteractionManager = {
 		global_mutator: false,
 	},
 
+	locked_door: {
+		text: 'the door is locked...',
+		next_key: false,
+		global_mutator: false,
+	},
+
 	// end interactions
 	
 	interaction_map: new Map([
 		{
 			tilemap_key: 'infirmary_bed_unoccupied',
-			interaction_key: 'bed_interaction_0',
+			interaction_key: 'bed_unoccupied_0',
 		},
 		{
 			tilemap_key: 'infirmary_bed_occupied',
 			interaction_key: 'bed_npc_0',
+		},
+		{
+			tilemap_key: 'locked-door',
+			interaction_key: 'locked_door',
 		},
 	].map((obj) => [ obj.tilemap_key, obj.interaction_key ])),
 	

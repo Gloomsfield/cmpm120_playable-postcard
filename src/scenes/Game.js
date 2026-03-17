@@ -12,6 +12,25 @@ class Game extends Phaser.Scene {
 		const walls_layer = map.createLayer('walls', tileset, 0, 0);
 		const foreground_layer = map.createLayer('foreground', tileset, 0, 0);
 
+		map.filterObjects('interactables', (object) => {
+			let x_offset = Math.floor(object.x / 64);
+			let y_offset = Math.floor(object.y / 64);
+
+			for(let y = y_offset; y < y_offset + Math.floor(object.height / 64); y++) {
+				for(let x = x_offset; x < x_offset + Math.floor(object.width / 64); x++) {
+					let interactable = new InteractableObject(this, object.name, x, y);
+
+					if(object.properties) {
+						for(let property of object.properties) {
+							interactable[property.name] = property.value;
+						}
+					}
+
+					WorldGrid.place_interactable(interactable, x, y);
+				}
+			}
+		});
+
 		map.forEachTile(
 			(tile) => {
 				if(tile.index > -1) {
@@ -26,18 +45,6 @@ class Game extends Phaser.Scene {
 			{ },
 			'walls'
 		);
-
-		map.filterObjects('interactables', (object) => {
-			let x_offset = Math.floor(object.x / 64);
-			let y_offset = Math.floor(object.y / 64);
-
-			for(let y = y_offset; y < y_offset + Math.floor(object.height / 64); y++) {
-				for(let x = x_offset; x < x_offset + Math.floor(object.width / 64); x++) {
-					let interactable = new InteractableObject(this, object.name, x, y);
-					WorldGrid.place_interactable(interactable, x, y);
-				}
-			}
-		});
 
 		// TODO remove hardcoded coords
 		this.player = new Player(this, { x: 3, y: 36 });
