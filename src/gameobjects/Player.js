@@ -21,7 +21,7 @@ let Player = new Phaser.Class({
 		);
 
 		this.move_left_input.on('down', () => {
-			if(this.has_active_dialogue) { return; }
+			if(InteractionManager.active_interaction) { return; }
 
 			this.move(LEFT);
 
@@ -35,7 +35,7 @@ let Player = new Phaser.Class({
 		);
 
 		this.move_right_input.on('down', () => {
-			if(this.has_active_dialogue) { return; }
+			if(InteractionManager.active_interaction) { return; }
 
 			this.move(RIGHT);
 
@@ -49,7 +49,7 @@ let Player = new Phaser.Class({
 		);
 
 		this.move_up_input.on('down', () => {
-			if(this.has_active_dialogue) { return; }
+			if(InteractionManager.active_interaction) { return; }
 
 			this.move(UP);
 
@@ -63,7 +63,7 @@ let Player = new Phaser.Class({
 		);
 
 		this.move_down_input.on('down', () => {
-			if(this.has_active_dialogue) { return; }
+			if(InteractionManager.active_interaction) { return; }
 
 			this.move(DOWN);
 
