@@ -1,5 +1,7 @@
 // amory acosta
 // CMPM120 - playable postcard project
+// title: "a murder on the obsidian sea"
+// approximate hours spent: 25
 
 let phaser_config = {
 	type: Phaser.WEBGL,
