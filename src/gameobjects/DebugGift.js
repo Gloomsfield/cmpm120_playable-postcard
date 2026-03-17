@@ -5,13 +5,11 @@ let DebugGift = new Phaser.Class({
 		Block,
 	],
 
+	interaction_key: 'debug_interaction_0',
+
 	initialize: function DebugGift(scene, grid_position) {
 		GridObject.call(this, scene, grid_position.x, grid_position.y, 'debug_gift_sprite');
 
 		scene.add.existing(this);
-	},
-
-	on_interact: function(player_instance) {
-		console.log("wow!");
 	},
 });

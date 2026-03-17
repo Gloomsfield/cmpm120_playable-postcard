@@ -1,0 +1,53 @@
+let InteractionManager = {
+	ui_scene: false,
+
+	// interactions
+
+	debug_interaction_0: { 
+		text: 'haiii :3',
+		next_key: 'debug_interaction_1',
+		global_mutator: false,
+	},
+
+	debug_interaction_1: {
+		text: 'omg...!',
+		next_key: false,
+		global_mutator: () => {
+			console.log('test function');
+		},
+	},
+
+	// end interactions
+	
+	interaction_map: new Map([
+		{
+			tilemap_key: 'infirmary_bed_occupied',
+			interaction_key: 'debug_interaction_0',
+		},
+	].map((obj) => [ obj.tilemap_key, obj.interaction_key ])),
+	
+	start_interaction: function(tilemap_key) {
+		if(!ui_scene) {
+			console.error('ui_scene undefined in InteractionManager!');
+			return;
+		}
+
+		let interaction_key = this.interaction_map.get(tilemap_key);
+
+		if(!interaction_key) {
+			console.error(`attempted to start interaction with undefined tile "${tilemap_key}"!`);
+			return;
+		}
+
+		let interaction = this.get(interaction_key);
+
+		if(!interaction) {
+			console.error(`attempted to start undefined interaction "${interaction_key}"!`);
+		}
+
+		this.ui_scene.dialogue_box.visible = true;
+		this.ui_scene.dialogue_text.visible = true;
+		this.ui_scene.dialogue_text.text = interaction.text;
+	},
+};
+
