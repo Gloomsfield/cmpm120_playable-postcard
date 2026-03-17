@@ -23,6 +23,8 @@ class UI extends Phaser.Scene {
 
 		this.dialogue_box.visible = false;
 		this.dialogue_text.visible = false;
+
+		InteractionManager.ui_scene = this;
 	}
 }
 

@@ -27,7 +27,7 @@ let InteractionManager = {
 	].map((obj) => [ obj.tilemap_key, obj.interaction_key ])),
 	
 	start_interaction: function(tilemap_key) {
-		if(!ui_scene) {
+		if(!this.ui_scene) {
 			console.error('ui_scene undefined in InteractionManager!');
 			return;
 		}
@@ -39,7 +39,7 @@ let InteractionManager = {
 			return;
 		}
 
-		let interaction = this.get(interaction_key);
+		let interaction = this[interaction_key];
 
 		if(!interaction) {
 			console.error(`attempted to start undefined interaction "${interaction_key}"!`);
